@@ -217,7 +217,7 @@ print(elem)
 pip install pandas
 ```
 
-- Import the pandas into the program for storing the data into data frame and saving the saving data frame later into the `.csv`
+- Import the pandas into the program for storing the data into data frame and saving the data frame later into the `.csv`
 
 ---
 
