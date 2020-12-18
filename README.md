@@ -36,6 +36,7 @@ pip install bs4
 #### Import Libraries and the set the destination URL to scrap
 
 ```python
+import json
 import requests
 from bs4 import BeautifulSoup
 url="https://www.codewithharry.com"
@@ -209,6 +210,14 @@ print(elem)
 ```
 
 ## Save the result in .csv file
+
+- It requires Pandas library
+
+```
+pip install pandas
+```
+
+- Import the pandas into the program for storing the data into data frame and saving the saving data frame later into the `.csv`
 
 ---
 
