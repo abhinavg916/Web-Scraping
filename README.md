@@ -219,6 +219,50 @@ pip install pandas
 
 - Import the pandas into the program for storing the data into data frame and saving the saving data frame later into the `.csv`
 
+## Bypass Google CAPTCHA while Scraping with Requests
+
+#### Problem:
+
+- Python code to request the URL:
+
+```python
+agent = {"User-Agent":'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36'} #using agent to solve the blocking issue
+response = requests.get('https://www.naukri.com/jobs-in-andhra-pradesh', headers=agent)
+#making the request to the link
+```
+
+- Output when printing the html :
+
+```html
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <title>Naukri reCAPTCHA</title>
+    #the title in the actual title of the URL that I am requested for
+    <meta name="robots" content="noindex, nofollow" />
+    <link rel="stylesheet" href="https://static.naukimg.com/s/4/101/c/common_v62.min.css" />
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+  </head>
+</html>
+```
+
+#### Solution:
+
+- Using `Google Cache` along with a `referer` prevents these captcha's (do remember not to send more than 2 requests/sec. You may get blocked:
+
+```python
+header = {"user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.36" ,'referer':'https://www.google.com/'}
+r = requests.get("http://webcache.googleusercontent.com/search?q=cache:www.naukri.com/jobs-in-andhra-pradesh",headers=header)
+```
+
+- This gives:
+
+```python
+>>> r.content
+[Squeezed 2554 lines]
+```
+
 ---
 
 # Author
