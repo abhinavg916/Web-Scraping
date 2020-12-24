@@ -1,3 +1,5 @@
+# Submission by Abhinav - abhinavg916@gmail.com
+
 # Import libraries
 import requests
 from bs4 import BeautifulSoup
@@ -14,10 +16,10 @@ for i in range(1,51):
 
 # Loop each page to scrap product details
 for url in url_list:
-    response = requests.get(url)
-    htmlContent = response.content
+    res = requests.get(url)
+    htmlContent = res.content
     soup = BeautifulSoup(htmlContent, 'html.parser')
-    
+
     # Fetching product details
     item_title =  (soup.find_all("a", class_="standard-type__product_title"))
     item_price = (soup.find_all("span", class_="standard-type__price"))
@@ -32,3 +34,4 @@ for url in url_list:
 # Exporting the details in CSV
 df = pd.DataFrame({'Product_Name':product_names, 'Product_Price':product_prices}, columns=['Product_Name', 'Product_Price'])
 df.to_csv('staples_data.csv')
+
