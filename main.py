@@ -1,4 +1,4 @@
-# UNCOMMENT STATMENTS TO VIEW OUTPUTS
+# UNCOMMENT STATEMENTS TO VIEW OUTPUTS
 
 # Step 0: Import Libraries and the set the destination URL to scrap
 import requests
